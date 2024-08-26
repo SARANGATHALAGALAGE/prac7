@@ -1,3 +1,5 @@
+import scala.io.StdIn._
+
 object EvenNumberFilter {
   def filterEvenNumbers(numbers: List[Int]): List[Int] = {
     // Using the filter method with a lambda function to filter out even numbers
@@ -5,9 +7,19 @@ object EvenNumberFilter {
   }
 
   def main(args: Array[String]): Unit = {
-    // Example usage
-    val inputList = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    // Prompting user for input
+    println("Enter a list of integers separated by spaces:")
+
+    // Reading the user's input as a string
+    val input = readLine()
+
+    // Splitting the input string by spaces and converting each part to an integer
+    val inputList = input.split(" ").map(_.toInt).toList
+
+    // Filtering even numbers
     val evenNumbers = filterEvenNumbers(inputList)
-    println(evenNumbers)  // Output: List(2, 4, 6, 8, 10)
+
+    // Printing the result
+    println("Even numbers: " + evenNumbers.mkString(", "))
   }
 }
